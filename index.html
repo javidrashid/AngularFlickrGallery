@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" ng-app="galleryApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Sample Angular 2 Template</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap-3.1.1/css/bootstrap.min.css"/>
+	<style>
+		body{background: #990000;color:#fff;}
+		ul li{list-style: none;}
+		figure {padding: 20px;}
+	</style>
+</head>
+<body>
+	<div class="container" ng-controller="galleryController">
+		
+		<div class="row">
+		<div class="col-lg-3"></div>
+			<div class="col-lg-4">
+				<h3>{{heading}}</h3>
+
+				<form ng-submit="getPhotos(sValue)">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Search Flickr Images" ng-model="sValue">
+				</div>	
+				<div class="form-inline col-lg-2">	
+					<button class="btn-default btn btn-primary" ng-click="getPhotos(sValue)">Fetch Images</button>
+				</div>	
+				</form>
+			</div>
+		<div class="col-lg-3"></div>	 
+		</div>
+		<div class="row">
+		
+		<div class="col-lg-6" ng-repeat = "p in photos">
+			
+						<figure class="">
+							<img src="http://farm{{p.farm}}.staticflickr.com/{{p.server}}/{{p.id}}_{{p.secret}}.jpg" alt="">
+						</figure>
+					
+		</div>
+		<h1 ng-show="photos.length === 0">Sorry But there are no Images with the search term</h1>
+			
+		</div>
+	</div>
+	<!--<script type="text/javascript" src="bootstrap-3.1.1/js/jquery-1.9.1.js"></script>-->
+	<!--<script type="text/javascript" src="bootstrap-3.1.1/js/bootstrap.min.js"></script>-->
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/angular-dependencies/angular-sanitize.min.js"></script>
+	<!--<script type="text/javascript" src="js/angular-1_old.js"></script>-->
+	<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
