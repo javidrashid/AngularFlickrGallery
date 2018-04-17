@@ -1,10 +1,9 @@
 var galleryApp = angular.module('galleryApp',['ngSanitize'])
 				.controller('galleryController', function($scope, gFact) {
-					$scope.heading="Search Images";
+					$scope.heading="Search Flickr Images";
 					 $scope.getPhotos = function(sValue) {
 						gFact.getImages(sValue).then(function(data) {
 						$scope.photos = data.photos.photo;
-						//console.warn(data.photos.photo.length);
 					})
 					}
 					$scope.getPhotos('Tiger');
